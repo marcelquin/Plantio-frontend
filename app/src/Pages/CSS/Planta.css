@@ -1,0 +1,49 @@
+.conteudoPlanta
+{
+    width: 80%;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.conteudoPlanta .boxButton
+{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.conteudoPlanta .menuCategoriaCiclo
+{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    color: #27548A;
+
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
+.conteudoPlanta .boxConteudo
+{
+    width: 100%;
+    height: auto;
+}
+
+.btn-outline-secondary {
+    color: #3F7D58;
+    border-color: #3F7D58;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #3F7D58;
+    border-color: #3F7D58;
+}

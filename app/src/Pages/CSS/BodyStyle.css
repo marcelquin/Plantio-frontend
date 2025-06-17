@@ -1,0 +1,265 @@
+.conteudoBox
+{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 3%;
+    height: auto;
+}
+
+button
+{
+    width: auto;
+}
+
+
+
+.boxForm
+{
+    font-size: 18px;
+    margin: 2%;
+}
+
+.boxForm span
+{
+    margin: 5px;
+}
+
+.input-group mb-3
+{color: black;}
+
+.BoxHome, .boxAdicionarGerenciar
+{
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.BoxHome .BoxCategoriaCiclo
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    font-size: 16px;
+    border:1px solid rgb(4, 243, 104);
+}
+
+
+.boxAdicionarGerenciar .boxSubMenu
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 8%;
+}
+
+.BoxHome .topMenu
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.topMenu button
+{
+    margin-left: 10%;
+}
+
+.BoxHome .bodyconteudo
+{
+    width: 90%;
+    height: auto;
+    margin: 5%;
+}
+
+
+.BoxHome .boxopcao
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+}
+
+
+.BoxHome .boxTable
+{
+    width: 100%;
+    height: auto;
+    border:1px solid red;
+}
+
+.boxAdicionarGerenciar
+{
+    display: flex;
+}
+
+.boxAdicionarGerenciar .submenu
+{
+    width: 15%;
+    height: auto;
+}
+
+.submenu .titulo
+{
+    color: #3F7D58;
+    font-size: 22px;
+    margin-bottom: 5%;
+    text-transform: uppercase;
+}
+
+.submenu .opcao
+{
+    cursor: pointer;
+    font-size: 18px;
+    margin: 5%;
+}
+
+.boxAdicionarGerenciar .conteudo
+{
+    width: 80%;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap
+}
+
+.btnSalvar
+{
+    width: 80px;
+    height: 20px;
+} 
+
+.opcaoExtra
+{
+    text-decoration: none;
+    margin: 15px;
+    cursor: pointer;
+    color: #3F7D58;
+}
+
+.opcaoExtra:hover
+{
+    color: #27548A;
+}
+
+
+.infoTitulo
+{
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+}
+
+.infoItem
+{
+    font-style: oblique;
+    font-size: 18px;
+}
+
+.infoTexto
+{
+    font-size: 18px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 1200px;
+    height: 500px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    background: white;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.modal-close-button:hover {
+    color: #ff4444;
+}
+
+.modal-body {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.frame-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+}
+
+.iframe-button {
+    padding: 10px 20px;
+    background-color: #3F7D58;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.iframe-button:hover {
+    background-color: #27548A;
+}
+
+.boxSelecaoEdit
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.input-group
+{
+    padding: 5px;
+}
+
+.form-check
+{
+    padding: 1%;
+}

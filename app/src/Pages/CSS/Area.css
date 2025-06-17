@@ -1,0 +1,29 @@
+.conteudoArea
+{
+    width: 80%;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+
+.conteudoArea .boxButton
+{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    padding-left: 20px;
+}
+
+a
+{
+   margin: 10px;
+}
+
+.conteudoArea .boxConteudo
+{
+    width: 100%;
+    height: auto;
+}

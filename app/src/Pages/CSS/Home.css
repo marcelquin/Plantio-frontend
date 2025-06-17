@@ -1,0 +1,17 @@
+h1
+{
+    font-size: 24px;
+    color: #3F7D58;
+    text-transform: uppercase;
+}
+
+.btn-outline-secondary {
+    color: #3F7D58;
+    border-color: #3F7D58;
+}
+
+.btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #3F7D58;
+    border-color: #3F7D58;
+}
