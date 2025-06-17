@@ -23,7 +23,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5.2.0
         with:   
-          context: ./Frontend/app
+          context: ./app
           push: true
           tags: |
               ${{ secrets.DOCKERHUB_USER }}/plantio20-frontend:v6
