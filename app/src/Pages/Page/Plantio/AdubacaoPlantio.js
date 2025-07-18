@@ -9,15 +9,9 @@ function AdubacaoPlantio({data})
     //const UrlPutAdubacao = "http://192.168.0.24:8080/plantio/NovaAdubacao"
     const navigate = useNavigate();
 
-    const [idPlantio, setIdPlantio] = useState("");
     const [relatorio, setRelatorio] = useState("");
 
-    const handleChangeId = (e) => {
-    setIdPlantio(e.target.value); // seta o valor do select
-    console.log("ID selecionado:", e.target.value); // só pra confirmar
-    };
-     
-      const handleClickAdubacao=async (e)=>{
+    const handleClickAdubacao=async (e)=>{
         try{
           fetch(UrlPutAdubacao, {
             method: 'PUT',
@@ -25,7 +19,7 @@ function AdubacaoPlantio({data})
               'Content-Type': 'application/x-www-form-urlencoded'
             },    
             body: new URLSearchParams({
-                id: Number(idPlantio),
+                id: Number(data.id),
                 relatorio: relatorio
             })
           })
@@ -46,36 +40,17 @@ function AdubacaoPlantio({data})
                             <td>
                                 <div class="input-group mb-3">
                                     <button class="btn btn-outline-secondary" type="button" id="button-addon1">Nome</button>
-                                    <input type="text" value={data.nome} class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
+                                    <input type="text" value={data.identificador} class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div class="input-group mb-3">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">Dimensão</button>
-                                    <input type="text" value={data.dimensao} class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
+                                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">Numero</button>
+                                    <input type="text" value={data.numero} class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <select
-                                    className="form-select"
-                                    aria-label="Selecione o Plantio"
-                                    value={idPlantio}
-                                    onChange={(e) => setIdPlantio(e.target.value)}
-                                    >
-                                    <option value="">Selecione o Plantio</option>
-                                    {data.plantios.map((plantio) => (
-                                        <option key={plantio.id} value={plantio.id}>
-                                        {plantio.numero}
-                                        </option>
-                                    ))}
-                                </select>
-                            </td>
-                            <br/>
-                            <br/>
                         </tr>
                         <tr>
                             <td>

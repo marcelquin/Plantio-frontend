@@ -13,27 +13,19 @@ function RelatorioArea({data})
               PLANTIOS: <span> {data.plantios ? (<>
               {data.plantios.length}
               </>) : (<></>)}</span><br/>
-            </p>
-            <h1 className='infoTitulo'>INFORMAÇÕES ADICIONAIS:</h1>
-            <p>
             {data.plantios.map((plantio, i) => (
               <div key={i}>
                 <br/>
-                NUMERO DE PLANTIO: <span>{plantio.numero}</span><br/>
-                NUMERO DE LINHAS: <span>{plantio.linhas.length}</span><br/>
-                LOCALIZAÇÕES POR LINHA:<br/>
-                {plantio.linhas.map((linha, j) => (
-                  <div key={j}>
-                    Linha {j + 1}: {linha.localizacoes.length} localizações, {linha.localizacoes.filter(loc => loc.disponivel).length} disponíveis neste momento.
-                  </div>
-                ))}
-                <br/>
-                <h1 className='infoTitulo'>RELATÓRIOS DE ADUBAÇÃO</h1>
+                <p>PLANTIO {plantio.numero}, contendo {plantio.linhas.length} linhas com {plantio.linhas.reduce((acc, cur) => acc + cur.localizacoes.length, 0)} localizações.</p>
+                <h1 className='infoTitulo'>EVENTOS:</h1>
                 {data.plantios.map((plantio,i)=>{return(<>
-                    Numero da linha: {plantio.numero}<br/>
-                    {plantio.notificacoes.map((notificacao,k)=>{return(<>
-                        <span>{notificacao}</span><br/>
-                    </>)})}
+                    <div key={i}>
+                      <ul>
+                        {plantio.notificacoes.map((notificacao,k)=>{return(<>
+                            <li>{notificacao}</li>
+                        </>)})}
+                      </ul>
+                    </div>
                 </>)})}
               </div>
             ))}

@@ -15,7 +15,7 @@ function Gerenciar() {
         <h1>Área</h1>
         </div>
       </Link>
-      <Link to="/planta"><div className='menuPlanta'>
+      <Link to="/gerenciar_planta_todos"><div className='menuPlanta'>
         <h1>Planta</h1>
         </div>
       </Link>

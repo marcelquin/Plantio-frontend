@@ -1,22 +1,13 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../../CSS/Planta.css';
-import EditarInfo from './EditarInfo';
 import React, { useState, useEffect } from 'react';
 import MenuCategoriaPlanta from '../../Components/Menu_Categoria_Planta';
 
-
 function GerenciarPlantaFimCiclo(){
   const UrlGetList = `${process.env.REACT_APP_BACKEND_URL}/planta/ListarPlantasFimCiclo`
-  //const UrlGetList = "http://localhost:8080/planta/ListarPlantasGerminacao"
+  const navigate = useNavigate();
   const [listAll, setListAll] = useState([]);
   const [pesquisaInput, setPesquisaInput] = useState('')
-  const [showModal, setShowModal] = useState(false);
-  const [modalContent, setModalContent] = useState(null);
-
-  const handleOpenModal = (content) => {
-      setModalContent(content);
-      setShowModal(true);
-  };
 
 
   const response = pesquisaInput.length > 0 ?
@@ -40,42 +31,32 @@ function GerenciarPlantaFimCiclo(){
       useEffect(() => {
         getLista();
       }, []);
-    
-      const [dataRequest, setDataRequest] = useState({
-        'idPlanta': '',
-        'nomecientifico': '',
-        'nomePopular': '',
-        'instrucoes': '',
-        'localizacao': '',
-        'ciclo': '',
-    })
-    
-    const handleRowSelect = (data) => {
-      setDataRequest({
-        'idPlanta': data.id,
-        'nomeCientifico': data.nomeCientifico,
-        'nomePopular': data.nomePopular,
-        'instrucoes': data.instrucoes,
-        'localizacao': data.localizacao.referencia,
-        'ciclo': data.ciclo.ciclo,
-      });
-    }
 
-    return(<>
+    const handleInfoPlanta = async (data) => {
 
-<div className='conteudoPlanta'>
-            <div className='boxButton'>
-                 <Link to="/nova_planta"><button type="button" class="btn btn-outline-success">NOVO CADASTRO</button></Link>
+    navigate('/gerenciar_planta', { state: { id: data.id } });
+};
+
+
+    return (
+      <div className='retornoInfoPlanta'>
+            <div className='retornoInfoTituloPlanta'>
+                <label>Gerência de Plantas</label>
             </div>
-            <div className='menuCategoriaCiclo'> <MenuCategoriaPlanta/></div>
-
-            <div className='boxConteudo'>
-            <h1>Gerência de Plantas</h1><br/>  
-            <div class="input-group mb-3">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon1"></button>
-        <input type="text" class="form-control" name='pesquisaInput' onChange={handleChange} placeholder="Digite o nome popular para pesquisa" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
-        </div>  
-      <table class="table">
+            <MenuCategoriaPlanta/>
+            {listAll.length === 0 ?(<>   
+              <div className="alert alert-warning mt-3">
+                    Nenhuma planta encontrada neste Ciclo. 
+              </div>
+            </>):(<>
+            <div clssName='retornoInfoConteudoPlanta'>
+                <div class="input-group mb-3">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon1"></button>
+                  <input type="text" class="form-control" name='pesquisaInput' onChange={handleChange} placeholder="Digite o nome popular para pesquisa" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
+                </div> 
+            </div>
+            </>)}
+            <table class="table">
         <thead>
             <tr>
               <th scope="col">Nome Popular</th>
@@ -96,9 +77,11 @@ function GerenciarPlantaFimCiclo(){
                     <td>{data.ciclo.ciclo}</td>
                     <td>{data.ciclo.dataUltimoCiclo}</td>
                     <td>{data.ciclo.dataCicloAtual}</td>
-                    <td>{data.localizacao ? (<>{data.localizacao.referencia}</>) : (<></>)}</td>
+                    <td>{data.localizacao ? (<>{data.localizacao}</>) : (<></>)}</td>
                     <td>{data.instrucoes}</td>
-                    <td><a onClick={() =>{handleOpenModal('Editar'); handleRowSelect(data);} } className='opcaoExtra'>Editar</a></td>
+                    <td>
+                      <button type="button" class="btn btn-warning" onClick={() => handleInfoPlanta(data)}>Gerenciar</button>                 
+                    </td>                  
                   </tr>
                 </tbody>
                 </>)})}
@@ -112,40 +95,19 @@ function GerenciarPlantaFimCiclo(){
                     <td>{data.ciclo.ciclo}</td>
                     <td>{data.ciclo.dataUltimoCiclo}</td>
                     <td>{data.ciclo.dataCicloAtual}</td>
-                    <td>{data.localizacao ? (<>{data.localizacao.referencia}</>) : (<></>)}</td>
+                    <td>{data.localizacao ? (<>{data.localizacao}</>) : (<></>)}</td>
                     <td>{data.instrucoes}</td>
-                    <td><a onClick={() =>{handleOpenModal('Editar'); handleRowSelect(data);} } className='opcaoExtra'>Editar</a></td>
+                    <td>
+                      <button type="button" class="btn btn-warning" onClick={() => handleInfoPlanta(data)}>Gerenciar</button>                 
+                    </td>                  
                   </tr>
                 </tbody>
                 </>)})}
             
-            </>)}
-   
-               
+            </>)}              
               </table>
-
-              {showModal && (
-                    <div className="modal-overlay">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <button 
-                                className="modal-close-button"
-                                onClick={() => setShowModal(false)}
-                            >
-                                ✕
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            {modalContent === 'Editar' && <EditarInfo data={dataRequest}/>}
-                        </div>
-                    </div>
-                </div>
-                )}
-                
-            </div>
         </div>
-                
-    </>);
+    );
 };
 
 export default GerenciarPlantaFimCiclo;

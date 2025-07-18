@@ -7,6 +7,7 @@
     justify-content: space-around;
     margin: 0 auto;
     margin-top: 5%;
+    background-color: #eee;
 }
 
 .conteudoPlanta .boxButton
@@ -22,7 +23,6 @@
     height: auto;
     cursor: pointer;
     color: #27548A;
-
     font-size: 20px;
     text-align: center;
     display: flex;
@@ -46,4 +46,48 @@
     color: #fff;
     background-color: #3F7D58;
     border-color: #3F7D58;
+}
+
+.retornoInfoPlanta
+{
+    width: 80%;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 2%;
+    border: 2px solid #27548A;
+}
+
+.retornoInfoPlanta .retornoInfoTituloPlanta
+{
+    width: 100%;
+    height: auto;
+    background-color: #27548A;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 3%;
+}
+
+.retornoInfoTituloPlanta label
+{
+    text-transform: uppercase;
+}
+
+.retornoInfoPlanta .retornoInfoConteudoPlanta 
+{
+    width: 100%;
+    height: auto;
+}
+
+.retornoInfoConteudoSubMenuCiclo
+{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
 }

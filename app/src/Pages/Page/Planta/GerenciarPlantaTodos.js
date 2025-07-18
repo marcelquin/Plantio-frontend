@@ -3,10 +3,10 @@ import '../../CSS/Planta.css';
 import React, { useState, useEffect } from 'react';
 import MenuCategoriaPlanta from '../../Components/Menu_Categoria_Planta';
 
-function GerenciarPlantaFloracao() {
+function GerenciarPlantaTodos(){
 
-  const UrlGetList = `${process.env.REACT_APP_BACKEND_URL}/planta/ListarPlantasFloracao`
-const navigate = useNavigate();
+  const UrlGetList = `${process.env.REACT_APP_BACKEND_URL}/planta/ListarPlantas`
+  const navigate = useNavigate();
   const [listAll, setListAll] = useState([]);
   const [pesquisaInput, setPesquisaInput] = useState('')
 
@@ -111,4 +111,4 @@ const navigate = useNavigate();
     );
 };
 
-export default GerenciarPlantaFloracao;
+export default GerenciarPlantaTodos;

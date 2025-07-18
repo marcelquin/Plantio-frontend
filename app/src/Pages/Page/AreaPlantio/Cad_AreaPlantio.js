@@ -13,9 +13,6 @@ function Cad_AreaPlantio() {
     nome: "",
     dimensao: "",
     gps: "",
-    numeroPlantios: 0,
-    numeroLinhas: 0,
-    numeroLocalizacoes: 0
   });
 
   const handleChanage = (e) => {
@@ -33,9 +30,6 @@ function Cad_AreaPlantio() {
           nome: dataPost.nome,
           dimensao: dataPost.dimensao,
           gps: dataPost.gps,
-          numeroPlantios: parseInt(dataPost.numeroPlantios),
-          numeroLinhas: parseInt(dataPost.numeroLinhas),
-          numeroLocalizacoes : parseInt(dataPost.numeroLocalizacoes)
         })
       })
       .then(navigate("/gerenciar")) 
@@ -43,9 +37,6 @@ function Cad_AreaPlantio() {
         nome: "",
         dimensao: "",
         gps: "",
-        numeroPlantios: 0,
-        numeroLinhas: 0,
-        numeroLocalizacoes: 0
       })
     }catch (err){
       console.log("erro")
@@ -80,26 +71,6 @@ function Cad_AreaPlantio() {
                 <div class="input-group mb-3">
                   <button class="btn btn-outline-secondary" type="button" id="button-addon1">GPS</button>
                   <input type="text" name="gps" onChange={handleChanage} class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
-                </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                <div class="input-group mb-3">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon1">NUmero de Plantios </button>
-                  <input type="number" name="numeroPlantios" onChange={handleChanage} class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
-                </div>
-                </td>
-                <td>
-                <div class="input-group mb-3">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon1">Numero de linhas</button>
-                  <input type="number" name="numeroLinhas" onChange={handleChanage} class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
-                </div>
-                </td>
-                <td>
-                <div class="input-group mb-3">
-                  <button class="btn btn-outline-secondary" type="button" id="button-addon1">localizações por Linha </button>
-                  <input type="number" name="numeroLocalizacoes" onChange={handleChanage} class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
                 </div>
                 </td>
                 <br/>

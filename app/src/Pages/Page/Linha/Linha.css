@@ -1,0 +1,30 @@
+.retornoLinhaInfo
+{
+    width: 80%;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 2%;
+    border: 2px solid #27548A;
+}
+
+.retornoLinhaInfo .retornoLinhaTitulo
+{
+    width: 100%;
+    height: auto;
+    background-color: #27548A;
+    color: white;
+}
+
+.retornoLinhaTitulo label
+{
+    text-transform: uppercase;
+}
+
+.retornoLinhaConteudo 
+{
+    width: 100%;
+    height: auto;
+}

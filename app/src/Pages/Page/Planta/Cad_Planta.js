@@ -1,33 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { data, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import '../../CSS/Planta.css'
 
-function Cad_Planta() {
-
+const Cad_Planta = ({data, onClose}) => {
   const UrlPost = `${process.env.REACT_APP_BACKEND_URL}/planta/NovaPlanta`
-  const UrlGetList = `${process.env.REACT_APP_BACKEND_URL}/localizacao/ListarLocalizacoesDisponiveis`
-  //const UrlPost = "http://localhost:8080/planta/NovaPlanta"
-  //const UrlGetList = "http://localhost:8080/localizacao/ListarLocalizacoesDisponiveis"
-  const navigate = useNavigate();
-
-  const getListaAreaAll = async () => {
-    try {
-      const response = await fetch(UrlGetList);
-      const data = await response.json();
-      setdadosGetLocalizacoes(data);
-    } catch (error) {
-      console.error('Erro ao buscar lista de áreas:', error);
-    }
-  };
-
-  const [dadosGetLocalizacoes, setdadosGetLocalizacoes] = useState([])
 
   const [dataPost, serdataPost] = useState({
-    localizacaoId: '',
+    localizacaoId: data.localizacaoId,
     nomeCientifico: '',
     nomePopular: '',
     instrucoes: ''
   });
+  console.log(data)
+    console.log(dataPost)
+
 
 
   const handleChanage = (e) => {
@@ -36,7 +21,9 @@ function Cad_Planta() {
   }
 
   const handleClick = async (e) => {
-
+    // Prevenir o comportamento padrão do formulário
+    e.preventDefault();
+    
     try {
       fetch(UrlPost, {
         method: 'POST',
@@ -50,9 +37,12 @@ function Cad_Planta() {
           instrucoes: dataPost.instrucoes,
         })
       })
-      .then(() => navigate("/gerenciar")) 
+      .then(() => {
+        // Fechar o modal em vez de navegar
+        if (onClose) onClose();
+      }) 
       serdataPost({
-        localizacaoId: '',
+        localizacaoId: data.localizacaoId,
         nomeCientifico: '',
         nomePopular: '',
         instrucoes: ''
@@ -62,9 +52,7 @@ function Cad_Planta() {
     }
   }
 
-  useEffect(() => {
-    getListaAreaAll();
-  }, []);
+
 
  
   return (
@@ -94,22 +82,6 @@ function Cad_Planta() {
                           <button class="btn btn-outline-secondary" type="button" id="button-addon1">Instruções</button>
                           <input type="text" name="instrucoes" onChange={handleChanage} class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
                         </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                            <select 
-                              class="form-select" 
-                              aria-label="Default select example"
-                              name="localizacaoId"
-                              value={dataPost.localizacaoId || ''}
-                              onChange={handleChanage}
-                            >
-                              <option value="">Localizações disponíveis</option>
-                            {dadosGetLocalizacoes.map((loc, i)=>{return(<>       
-                              <option key={loc.id} value={loc.id}>{loc.referencia}</option>
-                          </>)})}
-                          </select>
                       </td>
                     </tr>
                     <br/>

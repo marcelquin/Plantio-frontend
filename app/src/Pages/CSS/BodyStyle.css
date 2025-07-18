@@ -91,7 +91,6 @@ button
 {
     width: 100%;
     height: auto;
-    border:1px solid red;
 }
 
 .boxAdicionarGerenciar
@@ -223,6 +222,7 @@ button
     padding: 20px;
     flex: 1;
     overflow-y: auto;
+    background-color: #eee;
 }
 
 .frame-buttons {
@@ -262,4 +262,116 @@ button
 .form-check
 {
     padding: 1%;
+}
+
+a
+{
+    cursor: pointer;
+}
+
+.retornoInfo
+{
+    width: 100%;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 2%;
+    border: 2px solid #27548A;
+}
+
+.retornoInfo .retornoInfoTitulo
+{
+    width: 100%;
+    height: auto;
+    background-color: #27548A;
+    color: white;
+}
+
+.retornoInfoTitulo label
+{
+    text-transform: uppercase;
+}
+
+.retornoInfoConteudo 
+{
+    width: 100%;
+    height: auto;
+}
+
+.areaRetornoInfo
+{
+    width: 100%;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 2%;
+    border:2px solid #27548A;
+    background-image: url('../Imagens/plantio.png');
+}
+
+
+
+.areaRetornoInfo .areaRetornoBlocoPlantio
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.areaRetornoInfo .areaRetornoBlocoButton
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.areaRetornoBlocoButton button
+{
+    margin: 5px;
+}
+
+.areaRetornoBlocoPlantio .areaRetornoBlocobox
+{
+    border-radius: 5px;
+    background-image: url('../Imagens/plantio.png');
+    width: 25%;
+    height: auto;
+    margin: 2%;
+    border: 1px solid black;
+}
+
+.areaRetornoBlocobox button
+{
+    margin: 5px;
+}
+
+.areaRetornoBlocoPlantio .areaRetornoBlocolinha
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.areaRetornoBlocolinha .areaRetornoBlocolinhabox
+{
+    width: 90%;
+    height: auto;
+    margin: 2%;
+    border-radius: 5px;
+    background-image: url('../Imagens/linha.png');
+    background-size: contain;
+    color: white;
+}
+
+summary
+{
+    background-color: #27548A;
+    color: white;
 }

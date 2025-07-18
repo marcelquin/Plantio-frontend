@@ -1,0 +1,54 @@
+.retornoPlantaInfo
+{
+    width: 80%;
+    height: auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 2%;
+    border: 2px solid #27548A;
+}
+
+.retornoPlantaInfo .retornoPlantaTitulo
+{
+    width: 100%;
+    height: auto;
+    background-color: #27548A;
+    color: white;
+    text-transform: uppercase;
+}
+
+.retornoPlantaInfo .retornoPlantaTabela
+{
+    width: 100%;
+    height: auto;
+}
+
+.retornoPlantaTabela button
+{
+    margin: 2%;
+}
+.retornoPlantaTitulo label
+{
+    text-transform: uppercase;
+}
+
+.retornoPlantaConteudo 
+{
+    width: 100%;
+    height: auto;
+}
+
+.retornoPlantaConteudo .infoItem
+{
+    text-transform: uppercase;
+    font-style: oblique;
+    font-weight: 700;
+}
+
+.retornoPlantaConteudo .infoTexto
+{
+    font-style: italic;
+    font-weight: 200;
+}
