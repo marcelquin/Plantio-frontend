@@ -65,7 +65,6 @@ function GerenciarPlantaGerminacao(){
               <th scope="col">Nome Popular</th>
               <th scope="col">Ciclo Atual</th>
               <th scope="col">Data Último Ciclo</th>
-              <th scope="col">Data Ciclo Atual</th>
               <th scope="col">Localização</th>
               <th scope="col">Orientações</th>
             </tr>
@@ -79,7 +78,6 @@ function GerenciarPlantaGerminacao(){
                     <td scope="row">{data.nomePopular}</td>
                     <td>{data.ciclo.ciclo}</td>
                     <td>{data.ciclo.dataUltimoCiclo}</td>
-                    <td>{data.ciclo.dataCicloAtual}</td>
                     <td>{data.localizacao ? (<>{data.localizacao}</>) : (<></>)}</td>
                     <td>{data.instrucoes}</td>
                     <td>
@@ -97,7 +95,6 @@ function GerenciarPlantaGerminacao(){
                     <td scope="row">{data.nomePopular}</td>
                     <td>{data.ciclo.ciclo}</td>
                     <td>{data.ciclo.dataUltimoCiclo}</td>
-                    <td>{data.ciclo.dataCicloAtual}</td>
                     <td>{data.localizacao ? (<>{data.localizacao}</>) : (<></>)}</td>
                     <td>{data.instrucoes}</td>
                     <td>

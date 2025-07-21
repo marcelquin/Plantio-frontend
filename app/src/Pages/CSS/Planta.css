@@ -50,7 +50,7 @@
 
 .retornoInfoPlanta
 {
-    width: 80%;
+    width: 90%;
     height: auto;
     overflow-x: auto;
     white-space: nowrap;
@@ -58,6 +58,13 @@
     margin: 0 auto;
     margin-top: 2%;
     border: 2px solid #27548A;
+    margin-bottom: 3%;
+}
+
+.retornoInfoPlanta .table
+{
+    width: 100%;
+    height: auto;
 }
 
 .retornoInfoPlanta .retornoInfoTituloPlanta
@@ -65,6 +72,7 @@
     width: 100%;
     height: auto;
     background-color: #27548A;
+    background-repeat: repeat-x;
     color: white;
     font-size: 20px;
     margin-bottom: 3%;
