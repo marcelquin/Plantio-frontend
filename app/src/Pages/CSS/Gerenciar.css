@@ -16,10 +16,11 @@
     height: 200px;
     cursor: pointer;
     color: #27548A;
-    font-size: 20px;
-    text-align: center;
+    font-size: 20px;;
     text-transform: uppercase;
-    text-align: start;
+    background-image: url('../Imagens/gerenciaArea.png');
+    text-align: end;
+    border-radius: 20px;
 }
 
 .conteudoGerenciar .menuPlanta
@@ -29,18 +30,8 @@
     cursor: pointer;
     color: #27548A;
     font-size: 20px;
-    text-align: start;
-    text-transform: uppercase;
-}
-
-.menuArea:hover
-{
-    background-image: url('../Imagens/gerenciaArea.png');
-    text-align: end;
-}
-
-.menuPlanta:hover
-{
     background-image: url('../Imagens/gerenciaPlantas.png');
     text-align: end;
+    text-transform: uppercase;
+    border-radius: 20px;
 }

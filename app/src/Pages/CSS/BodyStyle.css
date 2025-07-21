@@ -309,11 +309,15 @@ a
     justify-content: space-around;
     margin: 0 auto;
     margin-top: 2%;
+    margin-bottom: 3%;
     border:2px solid #27548A;
     background-image: url('../Imagens/plantio.png');
 }
 
-
+.areaRetornoInfo .titleArea
+{
+    text-transform: none;
+}
 
 .areaRetornoInfo .areaRetornoBlocoPlantio
 {
@@ -321,6 +325,18 @@ a
     height: auto;
     display: flex;
     flex-wrap: wrap;
+}
+
+.areaRetornoInfo .areaRetornoBlocoMaisInfo
+{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    margin-bottom: 1%;
+    background-color: #27548A;
+    font-weight: 400;
 }
 
 .areaRetornoInfo .areaRetornoBlocoButton

@@ -39,7 +39,7 @@ const navigate = useNavigate();
 };
 
 
-    return (
+    return (<>
       <div className='retornoInfoPlanta'>
             <div className='retornoInfoTituloPlanta'>
                 <label>Gerência de Plantas</label>
@@ -108,7 +108,8 @@ const navigate = useNavigate();
             </>)}              
               </table>
         </div>
-    );
+            <br/><br/><br/>
+   </>);
 };
 
 export default GerenciarPlantaFloracao;

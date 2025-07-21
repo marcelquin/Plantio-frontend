@@ -39,7 +39,7 @@ function GerenciarPlantaTodos(){
 };
 
 
-    return (
+    return (<>
       <div className='retornoInfoPlanta'>
             <div className='retornoInfoTituloPlanta'>
                 <label>Gerência de Plantas</label>
@@ -108,7 +108,8 @@ function GerenciarPlantaTodos(){
             </>)}              
               </table>
         </div>
-    );
+        <br/><br/><br/>
+   </>);
 };
 
 export default GerenciarPlantaTodos;

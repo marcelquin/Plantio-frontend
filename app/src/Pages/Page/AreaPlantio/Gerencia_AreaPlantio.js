@@ -39,7 +39,7 @@ function Gerencia_AreaPlantio() {
   }
 
   const response = pesquisaInput.length > 0 ?
-  listAll.filter(dados => dados.nome.includes(pesquisaInput)) :
+  listAll.filter(dados => dados.nome.toLowerCase().includes(pesquisaInput)) :
   []
 //AREA
 //AREA BODY
@@ -86,11 +86,10 @@ const handlePutArea = async (data) => {
   };
 
 const handleDeleteArea = async (areaId) => {
-  // Adiciona confirmação antes de excluir
   const confirmDelete = window.confirm('Tem certeza que deseja excluir esta área? Esta ação não pode ser desfeita.');
   
   if (!confirmDelete) {
-    return; // Cancela a exclusão se o usuário não confirmar
+    return;
   }
   
   try {
@@ -147,7 +146,6 @@ const handleAddPlantio = async (areaId) => {
 };
 
 const handleDeletePlantio = async (areaId, plantioId) => {
-  // Adiciona confirmação antes de excluir
   const confirmDelete = window.confirm('Tem certeza que deseja excluir este plantio? Esta ação não pode ser desfeita.');
   
   if (!confirmDelete) {
@@ -276,112 +274,29 @@ const handleInfoLinha = async (data) => {
         <div className="alert alert-warning mt-3">
           Nenhuma área encontrada. Por favor, adicione uma nova área.
         </div>
-       ) : pesquisaInput.length > 0 ?(<>
-       
-        {response.map((area, i)=>{return(<>
+       ) : (<>
           <div className="input-group mb-3">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon1"></button>
-              <input type="text" class="form-control" name="pesquisaInput" onChange={handleChange} placeholder="Digite o nome da área para pesquisa" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
-            </div>
-          <div className='areaRetornoInfo'>
-            <details>
-              <summary>{area.nome}</summary>
-              <div className='areaRetornoBlocoButton'>
-                    <table>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <button type="button" class="btn btn-success" onClick={() => {handleAddPlantio(area.id);}}>+ Plantio</button>
-                            </td>
-                            <td>
-                                <div className="btn-group">
-                                    <button type="button" className="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                      Ações
-                                    </button>
-                                    <ul className="dropdown-menu">
-                                      <li><a className="dropdown-item" onClick={() => {handlePutArea(area);}}>Editar Informações</a></li>
-                                      <li><a className="dropdown-item" onClick={() => {handleRelatorioArea(area);}}>Relatorio</a></li>
-                                      <li><a className="dropdown-item" onClick={() => {handleDeleteArea(area.id);}}>Excluir</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-              </div>
-              {area.plantios?(<>
-              <div className='areaRetornoBlocoPlantio'>
-                
-                {area.plantios.map((plantio,i)=>{return(<>
-                  <div className='areaRetornoBlocobox'>
-                   <details key={i}>
-                    <summary>{plantio.identificador}</summary>
-                    <div className='areaRetornoBlocoPlantio'>
-                      <table>
-                        <tbody>
-                          <tr>
-                            <td>                                  
-                              <button type="button" class="btn btn-success" onClick={() => {handleAddPLinha(plantio.id);}}>+ Linha</button>   
-                            </td>
-                            <td>
-                              <div className="btn-group">
-                                    <button type="button" className="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                      Ações
-                                    </button>
-                                    <ul className="dropdown-menu">
-                                      <li><a className="dropdown-item" onClick={() => {handlerelatorioPlantio(plantio);}}>Eventos</a></li>
-                                      <li><a className="dropdown-item" onClick={() => {handleAdubacaoPlantio(plantio);}}>Adubação</a></li>
-                                      <li><a className="dropdown-item" onClick={() => {handleDeletePlantio(area.id,plantio.id);}}>Excluir</a></li>
-                                    </ul>
-                              </div>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      {plantio.linhas?(<>
-                      <div className='areaRetornoBlocolinha'>
-                        {plantio.linhas.map((linha,i)=>{return(<>
-                          <div className='areaRetornoBlocolinhabox' key={i}>
-                            <table>
-                              <tbody>
-                                <tr>
-                                  <td>
-                                    <a className="dropdown-item" onClick={() => {handleInfoLinha(linha);}}>{linha.identificador}</a>   
-                                  </td>
-                                  <td>
-                                    <a className="dropdown-item" onClick={() => {handleDeleteLinha(plantio.id, linha.id);}}>Excluir</a> 
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>          
-                        </>)})}
-                        </div>
-                      </>):(<></>)}
-                      
-                    </div>
-                   </details>
-                  </div>
-              </>)})}
-              </div>
-           
-              </>):(<></>)}
-              
-            </details>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon1"></button>
+            <input type="text" class="form-control" name="pesquisaInput" onChange={handleChange} placeholder="Digite o nome da área para pesquisa" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
           </div>
-          
-          </>)})}
-
-       </>) : (<>
-
-          {listAll.map((area, i)=>{return(<>
-          <div className="input-group mb-3">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon1"></button>
-              <input type="text" class="form-control" name="pesquisaInput" onChange={handleChange} placeholder="Digite o nome da área para pesquisa" aria-label="Example text with button addon" aria-describedby="button-addon1"/>
-            </div>
+       </>)} 
+       { pesquisaInput.length > 0 ?(<>
+          {response.map((area, i)=>{return(<>        
           <div className='areaRetornoInfo'>
-            <details open>
-              <summary>{area.nome}</summary>
+            <details open key={i}>
+              <summary><label className='titleArea'> ÁREA: {area.nome} </label></summary>
+                <div className='areaRetornoBlocoMaisInfo'>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Dimensão: {area.dimensao}</td>
+                    </tr>
+                    <tr>
+                      <td>Localização GPS: {area.gps}</td>
+                    </tr>
+                  </tbody>  
+                </table>
+              </div>
               <div className='areaRetornoBlocoButton'>
                     <table>
                         <tbody>
@@ -411,7 +326,7 @@ const handleInfoLinha = async (data) => {
                 {area.plantios.map((plantio,i)=>{return(<>
                   <div className='areaRetornoBlocobox'>
                    <details key={i} open>
-                    <summary>{plantio.identificador}</summary>
+                    <summary><label className='titleArea'>{plantio.identificador}</label></summary>
                     <div className='areaRetornoBlocoPlantio'>
                       <table>
                         <tbody>
@@ -460,7 +375,113 @@ const handleInfoLinha = async (data) => {
                   </div>
               </>)})}
               </div>
-           
+              <br/><br/><br/>
+              </>):(<></>)}
+              
+            </details>
+          </div>
+          
+          </>)})}
+
+       </>) : (<>
+
+          {listAll.map((area, i)=>{return(<>
+          <div className='areaRetornoInfo'>
+            <details open key={i}>
+              <summary><label className='titleArea'> ÁREA: {area.nome}</label></summary>
+                <div className='areaRetornoBlocoMaisInfo'>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Dimensão: {area.dimensao}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Localização GPS: {area.gps}
+                      </td>  
+                    </tr>
+                  </tbody>  
+                </table>
+              </div>
+              <div className='areaRetornoBlocoButton'>
+                    <table>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <button type="button" class="btn btn-success" onClick={() => {handleAddPlantio(area.id);}}>+ Plantio</button>
+                            </td>
+                            <td>
+                                <div className="btn-group">
+                                    <button type="button" className="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Ações
+                                    </button>
+                                    <ul className="dropdown-menu">
+                                      <li><a className="dropdown-item" onClick={() => {handlePutArea(area);}}>Editar Informações</a></li>
+                                      <li><a className="dropdown-item" onClick={() => {handleRelatorioArea(area);}}>Relatorio</a></li>
+                                      <li><a className="dropdown-item" onClick={() => {handleDeleteArea(area.id);}}>Excluir</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+              </div>
+              {area.plantios?(<>
+              <div className='areaRetornoBlocoPlantio'>
+                
+                {area.plantios.map((plantio,i)=>{return(<>
+                  <div className='areaRetornoBlocobox'>
+                   <details key={i} open>
+                    <summary><label className='titleArea'>{plantio.identificador}</label></summary>
+                    <div className='areaRetornoBlocoPlantio'>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>                                  
+                              <button type="button" class="btn btn-success" onClick={() => {handleAddPLinha(plantio.id);}}>+ Linha</button>   
+                            </td>
+                            <td>
+                              <div className="btn-group">
+                                    <button type="button" className="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                      Ações
+                                    </button>
+                                    <ul className="dropdown-menu">
+                                      <li><a className="dropdown-item" onClick={() => {handlerelatorioPlantio(plantio);}}>Eventos</a></li>
+                                      <li><a className="dropdown-item" onClick={() => {handleAdubacaoPlantio(plantio);}}>Adubação</a></li>
+                                      <li><a className="dropdown-item" onClick={() => {handleDeletePlantio(area.id,plantio.id);}}>Excluir</a></li>
+                                    </ul>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      {plantio.linhas?(<>
+                      <div className='areaRetornoBlocolinha'>
+                        {plantio.linhas.map((linha,i)=>{return(<>
+                          <div className='areaRetornoBlocolinhabox' key={i}>
+                            <table>
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <a className="dropdown-item" onClick={() => {handleInfoLinha(linha);}}>{linha.identificador}</a>   
+                                  </td>
+                                  <td>
+                                    <a className="dropdown-item" onClick={() => {handleDeleteLinha(plantio.id, linha.id);}}>Excluir</a> 
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>          
+                        </>)})}
+                        </div>
+                      </>):(<></>)}
+                      
+                    </div>
+                   </details>
+                  </div>
+              </>)})}
+              </div>
+              <br/><br/><br/>
               </>):(<></>)}
               
             </details>

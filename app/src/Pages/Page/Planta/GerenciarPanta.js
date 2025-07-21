@@ -87,7 +87,7 @@ const carregarLinha = async () => {
   }
 
   if (loading || !plantaData) {
-    return <div>Carregando dados da linha...</div>;
+    return <div></div>;
   }
 
   const handleCloseModal = async () => {
@@ -121,6 +121,7 @@ const carregarLinha = async () => {
                    <p className='infoItem'>Ciclo atual:  <span className='infoTexto'>{plantaData.ciclo.dataCicloAtual}</span></p>            
                    <p className='infoItem'>Ultimo Ciclo:  <span className='infoTexto'>{plantaData.ciclo.dataUltimoCiclo}</span></p>
                     </div>
+                    <br/><br/><br/>
                 </div>
             </div>
         </div>    

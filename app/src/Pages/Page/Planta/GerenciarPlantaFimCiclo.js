@@ -38,7 +38,7 @@ function GerenciarPlantaFimCiclo(){
 };
 
 
-    return (
+    return (<>
       <div className='retornoInfoPlanta'>
             <div className='retornoInfoTituloPlanta'>
                 <label>Gerência de Plantas</label>
@@ -107,7 +107,8 @@ function GerenciarPlantaFimCiclo(){
             </>)}              
               </table>
         </div>
-    );
+            <br/><br/><br/>
+   </>);
 };
 
 export default GerenciarPlantaFimCiclo;

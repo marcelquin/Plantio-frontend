@@ -39,7 +39,7 @@ function GerenciarPlantaFrutificacao() {
 };
 
 
-    return (
+    return (<>
       <div className='retornoInfoPlanta'>
             <div className='retornoInfoTituloPlanta'>
                 <label>Gerência de Plantas</label>
@@ -108,7 +108,8 @@ function GerenciarPlantaFrutificacao() {
             </>)}              
               </table>
         </div>
-    );
+            <br/><br/><br/>
+   </>);
 };
 
 export default GerenciarPlantaFrutificacao;
